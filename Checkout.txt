@@ -1,0 +1,72 @@
+    <!-- <meta name="description" content="Hindustan Filters is a trusted HEPA filter manufacturer in India, offering high-efficiency air filtration solutions for cleanrooms, hospitals, pharmaceuticals, and industrial applications. Our HEPA filters ensure superior air quality, durability, and reliable performance.">
+    <meta name="keywords" content="HEPA filter manufacturer India, Hindustan Filters India, high efficiency particulate air filter India, cleanroom HEPA filters India, industrial air filtration solutions India, hospital HEPA filter supplier India, pharmaceutical air filters India, HVAC HEPA filters India, air purification filters India, HEPA filter company India">
+    <meta name="author" content="Hindustan Filters">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <link rel="canonical" href="https://www.hindustanfilters.in/hepa-filter-manufacturer-in-india.php"> -->
+
+    <!-- <meta name="revisit-after" content="15 days"/>
+    <meta name="googlebot" content="index, follow"/>
+    <meta name="yahoobot" content="Index, follow"/>
+    <meta name="msnbot" content="index, follow"/>
+    <meta name="distribution" content="global"/>
+    <link rel="author" href="Hindustan Filters, http://www.hindustanfilters.in/" />
+    <meta name="language" content="EN" />
+    <meta name="copyright" content="© All rights reserved | Hindustan Filters" /> -->
+
+    <!-- <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "HEPA Filter Manufacturer in India",
+    "description": "Hindustan Filters provides high efficiency HEPA filters for cleanrooms, hospitals and industries in India.",
+    "image": "https://www.hindustanfilters.in/../images/hepa-filter-india.png",
+    "author": {
+        "@type": "Organization",
+        "name": "Hindustan Filters"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Hindustan Filters",
+        "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.hindustanfilters.in/../images/logo.png"
+        }
+    },
+    "datePublished": "2026-04-23",
+    "dateModified": "2026-04-23"
+    }
+    </script>
+
+
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+    {
+    "@type": "Question",
+    "name": "What is the efficiency of a HEPA filter?",
+    "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "HEPA filters remove 99.97% of particles as small as 0.3 microns."
+    }
+    },
+    {
+    "@type": "Question",
+    "name": "Where are HEPA filters used?",
+    "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "They are used in hospitals, cleanrooms, pharmaceutical industries and HVAC systems."
+    }
+    },
+    {
+    "@type": "Question",
+    "name": "Do you provide customized HEPA filters?",
+    "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, customized HEPA filters are available as per industrial requirements."
+    }
+    }
+    ]
+    }
+    </script> -->
