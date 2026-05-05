@@ -1,31 +1,67 @@
+<?php
+$success = "";
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $education = $_POST['education'];
+    $message = $_POST['message'];
+
+    // YOUR EMAIL (change this)
+    $to = "shubhamvarsh3@gmail.com";
+
+    $subject = "New Inquiry - $name";
+
+    $body = "
+    New Inquiry Received:
+
+    Name: $name
+    Email: $email
+    Education: $education
+    Message:$message
+    ";
+
+    $headers = "From: noreply@axiscranes.com\r\n";
+    $headers .= "Reply-To: $email\r\n";
+    $headers .= "MIME-Version: 1.0\r\n";
+    $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
+
+    if(mail($to, $subject, $body, $headers)) {
+        $success = "submitted successfully!";
+    } else {
+        $success = "Error sending While Submitting. Try again.";
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Primary SEO -->
-    <title>Industrial Filter Blog | Hydraulic, Air & HEPA Filters Guide</title>
-    <meta name="description" content="Read latest blogs on industrial filters including hydraulic filters, HEPA filters, air filters, and filtration solutions by Hindustan Filters.">
-    <meta name="keywords" content="Industrial Filter Blog, HEPA Filter India, Hydraulic Filter Guide, Air Filter Blog, Filtration Solutions India">
+    <title>Contact Hindustan Filters | Industrial Filter Manufacturer India</title>
+    <meta name="description" content="Contact Hindustan Filters for high-quality industrial filters including hydraulic, air, oil, and customized filtration solutions. Get expert support and fast response.">
+    <meta name="keywords" content="Contact Hindustan Filters, Industrial Filter Manufacturer India, Hydraulic Filter Supplier, Air Filter Manufacturer, Oil Filter Company India">
     <meta name="author" content="Hindustan Filters">
 
     <!-- Canonical -->
-    <link rel="canonical" href="https://www.yourwebsite.com/blog.html">
+    <link rel="canonical" href="https://www.yourwebsite.com/contact.html">
 
-    <!-- Open Graph -->
-    <meta property="og:title" content="Industrial Filter Blog | Hindustan Filters">
-    <meta property="og:description" content="Explore expert blogs on filtration systems, HEPA filters, and industrial filter solutions.">
-    <meta property="og:image" content="https://www.yourwebsite.com/images/Blog/hepa-filter-india.png">
-    <meta property="og:url" content="https://www.yourwebsite.com/blog.html">
+    <!-- Open Graph (Facebook / LinkedIn) -->
+    <meta property="og:title" content="Contact Hindustan Filters | Industrial Filter Experts">
+    <meta property="og:description" content="Get in touch with Hindustan Filters for premium industrial filtration solutions across India.">
+    <meta property="og:image" content="https://www.yourwebsite.com/images/og-image.jpg">
+    <meta property="og:url" content="https://www.yourwebsite.com/contact.html">
     <meta property="og:type" content="website">
 
-    <!-- Twitter -->
+    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Industrial Filter Blog">
-    <meta name="twitter:description" content="Latest insights on industrial filtration and filter manufacturing.">
-    <meta name="twitter:image" content="https://www.yourwebsite.com/images/Blog/hepa-filter-india.png">
+    <meta name="twitter:title" content="Contact Hindustan Filters">
+    <meta name="twitter:description" content="Reach out for industrial filters, custom solutions, and bulk orders.">
+    <meta name="twitter:image" content="https://www.yourwebsite.com/images/og-image.jpg">
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="images/favicon.ico">
@@ -40,25 +76,48 @@
     <link rel="stylesheet" href="assets/css/nice-select.css">
     <link rel="stylesheet" href="assets/css/style.css">
 
-    <!-- BLOG SCHEMA (VERY IMPORTANT 🔥) -->
+    <!-- Local Business Schema (IMPORTANT for Contact Page) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Blog",
-      "name": "Hindustan Filters Blog",
-      "url": "https://www.yourwebsite.com/blog.html",
-      "description": "Industrial filter blogs covering HEPA, hydraulic, air filters and filtration solutions.",
-      "publisher": {
-        "@type": "Organization",
-        "name": "Hindustan Filters",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://www.yourwebsite.com/images/hindustan-filters-logo.png"
-        }
-      }
+      "@type": "LocalBusiness",
+      "name": "Hindustan Filters",
+      "image": "https://www.yourwebsite.com/images/hindustan-filters-logo.png",
+      "url": "https://www.yourwebsite.com",
+      "telephone": "+91-9377475583",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "47, Pushkar Cottage Industrial Park, B/h Ramol Toll Plaza",
+        "addressLocality": "Ahmedabad",
+        "postalCode": "382449",
+        "addressCountry": "IN"
+      },
+      "openingHours": "Mo-Sa 09:00-18:00",
+      "sameAs": [
+        "https://www.facebook.com/",
+        "https://www.linkedin.com/",
+        "https://www.instagram.com/"
+      ]
     }
     </script>
-
+    
+    <style>
+        .contact-section {
+            background: #f9f9f9;
+        }
+        .contact-section h2 {
+            font-weight: 600;
+        }
+        .contact-section label {
+            font-weight: 500;
+        }
+        .form-control {
+            border-radius: 6px;
+        }
+        button {
+            border-radius: 30px;
+        }
+    </style>
 </head>
 
 <body>
@@ -75,6 +134,7 @@
     </div>
     <!-- Preloader area end -->
 
+ 
     <header class="header header-one">
         <div class="header-top d-none d-xl-block">
             <div class="container">
@@ -87,7 +147,7 @@
                     <ul class="info">
                         <li><i class="fa-solid primary-color fa-paper-plane"></i> <a
                                 href="#">sales@hindustanfilters.in</a></li>
-                        <!-- <li class="bor-left ms-4 ps-4"><i class="fa-solid primary-color fa-location-dot"></i> <a
+                        <!--<li class="bor-left ms-4 ps-4"><i class="fa-solid primary-color fa-location-dot"></i> <a
                                 href="#0">example@example.com</a>
                         </li> -->
                         <li class="bor-left fw-bold ms-4 ps-4"><i class="fa-solid primary-color fa-phone-volume"></i> <a
@@ -124,7 +184,7 @@
                         <li>
                             <a href="">Product</a>
                             <ul class="sub-menu">
-                                <!-- <li class="sub_menu_wrp d-none d-xl-block"><a href="#">Portfolio <i
+                                <!--<li class="sub_menu_wrp d-none d-xl-block"><a href="#">Portfolio <i
                                             class="fas fa-chevron-right float-end"></i></a>
                                     <ul class="sub_sub_menu">
                                         <li><a href="#">Portfolio One</a></li>
@@ -163,6 +223,7 @@
     </header>
 
     <main>
+        <!-- Page banner area start here -->
         <section class="page-banner bg-image section-padding">
             <div class="gaps-right d-none d-sm-block float-bob-x">
                 <img src="assets/images/shape/gaps-primary.png" alt="">
@@ -171,51 +232,143 @@
                 <img src="assets/images/shape/gaps-primary.png" alt="">
             </div>
             <div class="container">
-                <h2 class="wow fadeInUp" data-wow-duration="1.3s" data-wow-delay=".3s">Blog</h2>
+                <h2 class="wow fadeInUp" data-wow-duration="1.3s" data-wow-delay=".3s">Contact Us</h2>
                 <div class="breadcrumb-list wow fadeInUp" data-wow-duration="1.6s" data-wow-delay=".6s">
-                      <a href="index.html">Home :</a>
-                      <span>Blog</span>
+                    <a href="index.html">Home :</a>
+                    <span>Contact us</span>
                 </div>
             </div>
         </section>
         <!-- Page banner area end here -->
 
-        <!-- Blog single area start here -->
-        <section style="padding: 40px 0px!important;"  class="blog-slingle blog-area section-padding">
+        <!-- Contact form area start here -->
+        <section class="contact section-padding">
             <div class="container">
+            <?php if($success): ?>
+            <div class="alert alert-info"><?php echo $success; ?></div>
+            <?php endif; ?>
                 <div class="row g-4">
-                    <!-- Blog 1 -->
-                    <!-- blog-single.html -->
-                    <div class="col-lg-4">
-                        <div style="background-color: #ececec;margin-bottom: 20px;padding:10px 5px;border-radius: 20px;">
-                        <div style="padding: 0px 0px!important;border-radius: 20px;" class="item bor">
-                            <a  href="./Blog/hepa-filter-manufacturer-in-india.html" class="image d-block ">
-                                <img style="border-radius: 20px;" src="images/Blog/hepa-filter-india.png" alt="image">
-                            </a>
-                      
-                        </div>
-                        
-                        <div class="item py-0">
-                            <h3 class="text-capitalize mt-30 mb-3">
-                            <a href="./Blog/hepa-filter-manufacturer-in-india.html">HEPA Filter Manufacturer in India</a>
-                            </h3>
-                            <p>HEPA filters remove 99.97% of airborne particles, ensuring clean air in hospitals, cleanrooms, and HVAC systems.</p>
-                            <div class="d-flex align-items-center justify-content-between">
-                                <a style="margin-top: 10px;" class="go_blog" href="./Blog/hepa-filter-manufacturer-in-india.html"><i class="fa-solid fa-arrow-right-long"></i></a>
-                                <div class="image-tag">
-                                    <a style="background-color: red!important;color: white!important;" href="#0">30/04/2026</a>
-                                </div>
-                            </div>
-                         </div>
+                    <div class="col-lg-6">
+                        <div class="content bg-image">
+                            <h2>Looking for Industrial Filtration Solutions? <br>
+                                Get in Touch.</h2>
+                            <p>We manufacture high-performance industrial filters designed for various applications. 
+                                Our team ensures quality, durability, and customized solutions to meet your requirements.</p>
+                            <div class="arry"><img src="assets/images/icon/arry.png" alt=""></div>
+                            <ul>
+                                <li><a target="_blank"><i class="fa-solid fa-location-dot"></i>47, Pushkar Cottage Industrial Park, B/h. Ramol Toll Plaza, Ramol, Ahmedabad - 382449. </a>
+                                </li>
+                                <li><a href="tel:+919377475583"><i class="fa-solid fa-phone-volume"></i>+91 9377475583</a>
+                                </li>
+                                <li><a href="mailto:sales@hindustanfilters.in"><i
+                                            class="fa-solid fa-envelope"></i>sales@hindustanfilters.in</a></li>
+                            </ul>
                         </div>
                     </div>
-                    
+                    <div class="col-lg-6">
+                        <div class="form-area">
+                           <form method="POST" enctype="multipart/form-data">
+                                <input type="text" name="name" class="form-control" required placeholder="Your Name" >
+                                <input type="email" name="email" class="form-control" required placeholder="Your Email">
+                                   <select name="education" class="form-control" required>
+                                        <option value="">Select Inquiry Type</option>
+                                        <option>Product Inquiry</option>
+                                        <option>Custom Filter Requirement</option>
+                                        <option>Bulk Order</option>
+                                        <option>Technical Suppor</option>
+                                    </select>
+                                    <textarea name="message" class="form-control" rows="4" placeholder="Enter Your Requirement..."></textarea>
+                                    <div class="radio-btn mt-3">
+                                        <span></span>
+                                        <p>I agree to the terms & conditions</p>
+                                    </div>
+                                    <button type="submit" class="mt-40">Send Inquiry<i class="fa-solid fa-arrow-right-long"></i></button>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
-    
-    <footer class="footer-one secondary-bg">
+
+<!-- <section class="contact-section py-5">
+    <div class="container">
+        <h2 class="mb-4 text-center">Job Application Form</h2>
+
+        <?php if($success): ?>
+            <div class="alert alert-info"><?php echo $success; ?></div>
+        <?php endif; ?>
+
+        <form method="POST" enctype="multipart/form-data">
+
+            <div class="row">
+
+                <div class="col-md-6 mb-3">
+                    <label>Full Name</label>
+                    <input type="text" name="name" class="form-control" required>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label>Email</label>
+                    <input type="email" name="email" class="form-control" required>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label>Phone Number</label>
+                    <input type="tel" name="phone" class="form-control" required>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label>Education Level</label>
+                    <select name="education" class="form-control" required>
+                        <option value="">Select</option>
+                        <option>High School</option>
+                        <option>Diploma</option>
+                        <option>Bachelor's Degree</option>
+                        <option>Master's Degree</option>
+                    </select>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label>Experience (in years)</label>
+                    <input type="number" name="experience" class="form-control" min="0" required>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label>Position Applying For</label>
+                    <select name="position" class="form-control" required>
+                        <option value="">Select Position</option>
+                        <option value="Sales Manager">Sales Manager</option>
+                        <option value="Marketing Manager">Marketing Manager</option>
+                        <option value="Field Marketing Executive">Field Marketing Executive</option>
+                        <option value="Site Engineer">Site Engineer</option>
+                        <option value="Electrical Engineer">Electrical Engineer</option>
+                    </select>
+                </div>
+
+                <div class="col-md-12 mb-3">
+                    <label>Upload Resume (PDF/DOC)</label>
+                    <input type="file" name="resume" class="form-control" accept=".pdf,.doc,.docx" required>
+                </div>
+
+                <div class="col-md-12 mb-3">
+                    <label>Additional Information</label>
+                    <textarea name="message" class="form-control" rows="4"></textarea>
+                </div>
+
+                <div class="col-md-12 text-center">
+                    <button type="submit" class="btn btn-danger px-5 py-2">
+                        Submit Application
+                    </button>
+                </div>
+
+            </div>
+
+        </form>
+    </div>
+</section> -->
+
+        <footer class="footer-one secondary-bg">
         <div class="map">
             <img src="assets/images/footer/map.png" alt="">
         </div>
@@ -284,7 +437,9 @@
                                     </ul>
                                 </div>
                             </div>
+                   
                         </div>
+                 
                     </div>
                
                     <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-duration="1.9s" data-wow-delay=".6s">
@@ -302,13 +457,13 @@
                 <p>© 2017 Hindustan Filters. All rights reserved   | <strong>Designed by</strong> <a href="#">Koncept Solution</a></p>
             </div>
         </div>
-    </footer> 
+        </footer>  
 
-    <div class="scroll-up">
+        <div class="scroll-up">
             <svg class="scroll-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
                 <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
             </svg>
-    </div>
+        </div>
 
     <script src="assets/js/jquery-3.6.0.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
@@ -319,30 +474,7 @@
     <script src="assets/js/nice-select.min.js"></script>
     <script src="assets/js/isotope.pkgd.min.js"></script>
     <script src="assets/js/jquery.waypoints.js"></script>
-    <script src="assets/js/audio.js"></script>
     <script src="assets/js/script.js"></script>
 
-    <script type="application/ld+json">
-    {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": "HEPA Filter Manufacturer in India",
-    "description": "HEPA filters remove 99.97% of airborne particles for clean air applications.",
-    "image": "https://www.yourwebsite.com/images/Blog/hepa-filter-india.png",
-    "author": {
-    "@type": "Organization",
-    "name": "Hindustan Filters"
-    },
-    "publisher": {
-    "@type": "Organization",
-    "name": "Hindustan Filters",
-    "logo": {
-        "@type": "ImageObject",
-        "url": "https://www.yourwebsite.com/images/hindustan-filters-logo.png"
-    }
-    },
-    "datePublished": "2026-04-30"
-    }
-    </script>
 </body>
 </html>
