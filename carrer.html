@@ -1,41 +1,5 @@
-<?php
-$success = "";
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-    $name = $_POST['name'];
-    $email = $_POST['email'];
-    $education = $_POST['education'];
-    $message = $_POST['message'];
-
-    // YOUR EMAIL (change this)
-    $to = "shubhamvarsh3@gmail.com";
-
-    $subject = "New Inquiry - $name";
-
-    $body = "
-    New Inquiry Received:
-
-    Name: $name
-    Email: $email
-    Education: $education
-    Message:$message
-    ";
-
-    $headers = "From: noreply@axiscranes.com\r\n";
-    $headers .= "Reply-To: $email\r\n";
-    $headers .= "MIME-Version: 1.0\r\n";
-    $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
-
-    if(mail($to, $subject, $body, $headers)) {
-        $success = "submitted successfully!";
-    } else {
-        $success = "Error sending While Submitting. Try again.";
-    }
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -100,24 +64,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       ]
     }
     </script>
-    
-    <style>
-        .contact-section {
-            background: #f9f9f9;
-        }
-        .contact-section h2 {
-            font-weight: 600;
-        }
-        .contact-section label {
-            font-weight: 500;
-        }
-        .form-control {
-            border-radius: 6px;
-        }
-        button {
-            border-radius: 30px;
-        }
-    </style>
+
 </head>
 
 <body>
@@ -244,9 +191,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <!-- Contact form area start here -->
         <section class="contact section-padding">
             <div class="container">
-            <?php if($success): ?>
-            <div class="alert alert-info"><?php echo $success; ?></div>
-            <?php endif; ?>
                 <div class="row g-4">
                     <div class="col-lg-6">
                         <div class="content bg-image">
@@ -267,106 +211,38 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     </div>
                     <div class="col-lg-6">
                         <div class="form-area">
-                           <form method="POST" enctype="multipart/form-data">
-                                <input type="text" name="name" class="form-control" required placeholder="Your Name" >
-                                <input type="email" name="email" class="form-control" required placeholder="Your Email">
-                                   <select name="education" class="form-control" required>
-                                        <option value="">Select Inquiry Type</option>
-                                        <option>Product Inquiry</option>
-                                        <option>Custom Filter Requirement</option>
-                                        <option>Bulk Order</option>
-                                        <option>Technical Suppor</option>
-                                    </select>
-                                    <textarea name="message" class="form-control" rows="4" placeholder="Enter Your Requirement..."></textarea>
-                                    <div class="radio-btn mt-3">
-                                        <span></span>
-                                        <p>I agree to the terms & conditions</p>
-                                    </div>
-                                    <button type="submit" class="mt-40">Send Inquiry<i class="fa-solid fa-arrow-right-long"></i></button>
+                           <form action="#">
+                                <input type="text" placeholder="Your Name">
+                                <input type="email" placeholder="Your Email">
+                                <select name="subject" id="subject">
+                                    <option value="0">Select Inquiry Type</option>
+                                    <option value="0">Product Inquiry</option>
+                                    <option value="0">Custom Filter Requirement</option>
+                                    <option value="0">Bulk Order</option>
+                                    <option value="0">Technical Support</option>
+                                </select>
+                                <textarea name="Your Review" id="massage" placeholder="Enter Your Requirement..."></textarea>
+                                <div class="radio-btn mt-3">
+                                    <span></span>
+                                    <p>I agree to the terms & conditions</p>
+                                </div>
+                                <button class="mt-40">Send Inquiry<i class="fa-solid fa-arrow-right-long"></i></button>
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+        <!-- Contact form area end here -->
+
+        <!-- Contact map area start here -->
+        <!-- <div class="google-map">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387193.3059445134!2d-74.2598661379975!3d40.697149417741365!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sbd!4v1670395681365!5m2!1sen!2sbd"
+                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div> -->
+        <!-- Contact map area end here -->
     </main>
-
-<!-- <section class="contact-section py-5">
-    <div class="container">
-        <h2 class="mb-4 text-center">Job Application Form</h2>
-
-        <?php if($success): ?>
-            <div class="alert alert-info"><?php echo $success; ?></div>
-        <?php endif; ?>
-
-        <form method="POST" enctype="multipart/form-data">
-
-            <div class="row">
-
-                <div class="col-md-6 mb-3">
-                    <label>Full Name</label>
-                    <input type="text" name="name" class="form-control" required>
-                </div>
-
-                <div class="col-md-6 mb-3">
-                    <label>Email</label>
-                    <input type="email" name="email" class="form-control" required>
-                </div>
-
-                <div class="col-md-6 mb-3">
-                    <label>Phone Number</label>
-                    <input type="tel" name="phone" class="form-control" required>
-                </div>
-
-                <div class="col-md-6 mb-3">
-                    <label>Education Level</label>
-                    <select name="education" class="form-control" required>
-                        <option value="">Select</option>
-                        <option>High School</option>
-                        <option>Diploma</option>
-                        <option>Bachelor's Degree</option>
-                        <option>Master's Degree</option>
-                    </select>
-                </div>
-
-                <div class="col-md-6 mb-3">
-                    <label>Experience (in years)</label>
-                    <input type="number" name="experience" class="form-control" min="0" required>
-                </div>
-
-                <div class="col-md-6 mb-3">
-                    <label>Position Applying For</label>
-                    <select name="position" class="form-control" required>
-                        <option value="">Select Position</option>
-                        <option value="Sales Manager">Sales Manager</option>
-                        <option value="Marketing Manager">Marketing Manager</option>
-                        <option value="Field Marketing Executive">Field Marketing Executive</option>
-                        <option value="Site Engineer">Site Engineer</option>
-                        <option value="Electrical Engineer">Electrical Engineer</option>
-                    </select>
-                </div>
-
-                <div class="col-md-12 mb-3">
-                    <label>Upload Resume (PDF/DOC)</label>
-                    <input type="file" name="resume" class="form-control" accept=".pdf,.doc,.docx" required>
-                </div>
-
-                <div class="col-md-12 mb-3">
-                    <label>Additional Information</label>
-                    <textarea name="message" class="form-control" rows="4"></textarea>
-                </div>
-
-                <div class="col-md-12 text-center">
-                    <button type="submit" class="btn btn-danger px-5 py-2">
-                        Submit Application
-                    </button>
-                </div>
-
-            </div>
-
-        </form>
-    </div>
-</section> -->
 
         <footer class="footer-one secondary-bg">
         <div class="map">
@@ -475,6 +351,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <script src="assets/js/isotope.pkgd.min.js"></script>
     <script src="assets/js/jquery.waypoints.js"></script>
     <script src="assets/js/script.js"></script>
-
 </body>
 </html>
