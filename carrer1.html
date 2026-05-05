@@ -75,7 +75,7 @@
         education: document.querySelector('[name="education"]').value,
         message: document.querySelector('[name="message"]').value
     };
-
+    
     const res = await fetch("/api/contact", {
         method: "POST",
         headers: {
