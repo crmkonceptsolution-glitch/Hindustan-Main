@@ -65,6 +65,30 @@
     }
     </script>
 
+    <script>
+    document.getElementById("contactForm").addEventListener("submit", async function(e) {
+    e.preventDefault();
+
+    const formData = {
+        name: document.querySelector('[name="name"]').value,
+        email: document.querySelector('[name="email"]').value,
+        education: document.querySelector('[name="education"]').value,
+        message: document.querySelector('[name="message"]').value
+    };
+
+    const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(formData)
+    });
+
+    const data = await res.json();
+    alert(data.message);
+    });
+    </script>
+
 </head>
 
 <body>
@@ -211,7 +235,7 @@
                     </div>
                     <div class="col-lg-6">
                         <div class="form-area">
-                            <form method="POST" action="contactinquiry.php" enctype="multipart/form-data">
+                            <form id="contactForm">
                                 <input type="text" name="name" class="form-control" required placeholder="Your Name" >
                                 <input type="email" name="email" class="form-control" required placeholder="Your Email">
                                    <select name="education" class="form-control" required>
@@ -226,7 +250,7 @@
                                         <span></span>
                                         <p>I agree to the terms & conditions</p>
                                     </div>
-                                    <button type="submit" class="mt-40">Send Inquiry<i class="fa-solid fa-arrow-right-long"></i></button>
+                                    <button  type="submit" class="mt-40">Send Inquiry<i class="fa-solid fa-arrow-right-long"></i></button>
                             </form>
                         </div>
                     </div>
